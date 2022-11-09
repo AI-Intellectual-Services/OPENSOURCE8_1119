@@ -1,2 +1,2 @@
-# OPENSOURCE8_1119_report.md
-회의록
+회의록     
+추가 예정
