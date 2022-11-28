@@ -15,9 +15,22 @@ keyBERT
 
 keyBERT의 원리는 BERT를 이용해 문서 레벨 (document-level)에서의 주제 (representation)를 파악하도록 하고, N-gram을 위해 단어(자연어)를 기계가 이해할 수 있는 숫자의 나열인 벡터로 바꾸는 임베딩 작업을 한다. 여기서 N-gram 이란 Bag of Words, TF-IDF(Term Frequency - Inverse Document Frequency) 와 같이 사용되는 횟수 기반의 벡터 표현 방식을 사용하는 언어 모델이다. 이후 N-gram 모델을 사용해 문서의 각 문장을 단어로 쪼개준다. 코사인 유사도를 계산하여 어떤 N-gram 단어 또는 구가 문서와 가장 유사한지 찾아낸다. 그리고 가장 유사한 단어들은 문서를 가장 잘 설명할 수 있는 키워드로 분류된다.
 
-![Image.png](https://res.craft.do/user/full/8ce8fb2c-58d3-136f-9cce-c7e23418d06c/doc/D78E9B0C-210A-4811-A026-DD5CC75719F3/6D3BA952-3438-4E19-B67B-0ED1532543C1_2/8uhAxBjLyfwy39zEQ0ELgArO2LMlGRWE1Hyh5mjafWMz/Image.png)
 
 또한, keyBERT는 중복된 의미의 키워드가 너무 많이 추출되는 경우에 대비해 결과 키워드에 다양성을 도입하는 MSS, MMR 두 가지 방법을 포함한다. MSS는 candidate-document 간 거리는 최소로 하면서 candidate-candidate 간 거리는 최대로 함으로써 의미적으로 풍부한 키워드 set을 얻는다. 문서와 가장 유사한 words/phrases 2개를 사용해 이 두 개의 top_n 단어에서 모든 top_n combination을 취해 코사인 유사도를 구한다. 여기서 유사도가 가장 낮은 조합을 추출하는 방법론이다. MMR은 텍스트 요약 작업에서 중복성을 최소화하고 결과의 다양성을 극대화하기 위해 노력한다. 문서와 가장 유사한 키워드를 선택하는 것으로 시작한다. 그런 다음 문서와 비슷하면서도 이미 선택한 키워드와 비슷하지 않은 새 후보를 반복적으로 선택한다.
 
 이처럼 keyBERT는 비교적 단순함에도 불구하고 효율적이기 때문에 키워드 추출을 수행하는 경우 유용하게 사용된다.
+
+Khaiii
+
+khaiii는 “Kakao Hangul Analyzer III”의 줄임말로 카카오에서 개발한 세 번째 형태소 분석기이다. khaiii는 세종 코퍼스를 이용하여 CNN(Convolutional Neural Network, 합성곱 신경망) 기술을 적용해 학습한 형태소 분석기이다. 디코더를 C++로 구현하여 GPU 없이도 비교적 빠르게 동작하며, Python 바인딩을 제공하고 있어서 편리하게 사용할 수 있다.
+
+규칙 기반으로 동작하여 사람이 직접 규칙을 입력해야 했던 기존의 분석기인 dha1, dha2 와는 다르게 khaiii는 데이터 기반으로 동작하기 때문에 기계학습 알고리즘(딥러닝)을 사용한다. 기계학습을 위해서 신경망 알고리즘들 중에서 CNN(Convolutional Neural Network)을 사용했다. 입력하는 경우 각각의 음절이 분류 대상이다.
+
+형태소 분석 결과를 다시 형태소 각각의 음절 별로 나우어 IOB1 방식으로 나타내면 다음 사진과 같고, 나누어진 각각의 음절들은 그 다음 사진과 같이 정렬된다.
+
+![Image.png](https://res.craft.do/user/full/8ce8fb2c-58d3-136f-9cce-c7e23418d06c/doc/D78E9B0C-210A-4811-A026-DD5CC75719F3/EDCBCF14-39AD-486F-928B-5686E496B269_2/c2zj0USD9L3RKccSFxSpU6GE3nys3i9iJRpIm55x6o8z/Image.png)
+
+![Image.png](https://res.craft.do/user/full/8ce8fb2c-58d3-136f-9cce-c7e23418d06c/doc/D78E9B0C-210A-4811-A026-DD5CC75719F3/A2EF7B97-B1EE-45DC-BA27-CCC5F2988A6F_2/ErgHgy41eIf126nDfkk9Zfuy27RTMOBY4IFdWcFimb4z/Image.png)
+
+khaiii의 성능에 대해 얘기해보면, 정확도에서는 파라미터 win의 경우, 3 또는 4에서 가장 좋은 성능을 보였고 그 이상에서는 성능이 떨어졌다. 파라미터 emb의 경우, 150까지는 성능도 같이 높아지다가 그 이상에서는 별 차이가 없다. 다음 사진은 정확도에 관한 사진이다.
 
