@@ -244,34 +244,57 @@ Elastic-search	Elastic License	*상업적 이용시 계약 체결 혹은 솔라�
 7. 참고문헌
 OpenCV
 https://darkpgmr.tistory.com/131
+
 https://bkshin.tistory.com/entry/OpenCV-26-%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%9D%98-%ED%8A%B9%EC%A7%95%EA%B3%BC-%ED%82%A4-%ED%8F%AC%EC%9D%B8%ED%8A%B8
+
 https://blog.naver.com/PostView.nhn?blogId=junghs1040&logNo=222242950987&parentCategoryNo=&categoryNo=26&viewDate=&isShowPopularPosts=true&from=search
+
 khaiii 
+
 https://tech.kakao.com/2018/12/13/khaiii/
+
 GPT-Neo
+
 https://blog.naver.com/jaeyoon_95/222311993385
+
 https://smilegate.ai/2021/04/08/gpt-neo/
+
 https://medium.com/data-science-rush/open-source-gpt-3-is-out-9ad81b7b6a30
+
 Elasticsearch
+
 https://jaemunbro.medium.com/elastic-search-%EA%B8%B0%EC%B4%88-%EC%8A%A4%ED%84%B0%EB%94%94-ff01870094f0
+
 https://www.elastic.co/kr/what-is/elasticsearch
+
 keyBert
+
 https://insightcampus.co.kr/2021/07/08/keybert%EB%A1%9C-%EA%B4%80%EB%A0%A8-%ED%82%A4%EC%9B%8C%EB%93%9C-%EC%B6%94%EC%B6%9C%ED%95%98%EA%B8%B0/
+
 https://heeya-stupidbutstudying.tistory.com/entry/DL-keyword-extraction-with-KeyBERT-%EA%B0%9C%EC%9A%94%EC%99%80-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-1
+
 Tesseract-OCR
+
 https://velog.io/@mare-solis/BERT-keyBert%EB%A1%9C-%ED%82%A4%EC%9B%8C%EB%93%9C-%EC%B6%94%EC%B6%9C%ED%95%98%EA%B8%B0
+
 https://velog.io/@agugu95/Tesseract-OCR
+
 김남규, 김동언, 김성우, 권순각, 「광학 문자 인식을 통한 단어 정리 방법」, 한국멀티미더어학회, p.943-p.949
+
 BERT as a service: 
+
 https://hanxiao.io/2019/01/02/Serving-Google-BERT-in-Production-using-Tensorflow-and-ZeroMQ/
 
 https://blog.naver.com/dmswldla91/222167659381
 
 BERT
+
 https://happy-obok.tistory.com/23
 
 ZeroMQ
+
 https://ko.wikipedia.org/wiki/ZeroMQ
 
 Transformer
+
 https://blog.naver.com/winddori2002/222008003445
