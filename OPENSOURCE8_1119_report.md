@@ -212,7 +212,8 @@ GPT-3의 학습 방법은 다음 사진과 같다.
 
 # 4. 라이센스
 
-[스크린샷 2022-12-03 23 07 08](https://user-images.githubusercontent.com/98390300/205444878-f80dc5af-6a19-4579-b4b5-ecdef100de08.png)
+![스크린샷 2022-12-03 23 40 23](https://user-images.githubusercontent.com/98390300/205446450-3b1f70c1-69cc-46b3-8f4e-6fa8be84525c.png)
+
 	
 Elastic-search	Elastic License	*상업적 이용시 계약 체결 혹은 솔라로 교체
 
