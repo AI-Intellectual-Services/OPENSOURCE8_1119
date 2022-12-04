@@ -83,15 +83,15 @@
 규칙 기반으로 동작하여 사람이 직접 규칙을 입력해야 했던 기존의 분석기인 dha1, dha2 와는 다르게 khaiii는 데이터 기반으로 동작하기 때문에 기계학습 알고리즘(딥러닝)을 사용한다. 기계학습을 위해서 신경망 알고리즘들 중에서 CNN을 사용했다. 입력하는 경우 각각의 음절이 분류 대상이 된다.
 형태소 분석 결과를 다시 형태소 각각의 음절 별로 나누어 IOB1 방식으로 나타내면 다음 사진과 같고, 나누어진 각각의 음절들은 다음 사진과 같이 정렬된다.
 
-![image](https://user-images.githubusercontent.com/98390300/205445042-b8e15323-3079-4f71-8cbb-d1f61ff88f98.png)
+![image](https://user-images.githubusercontent.com/98390300/205482150-f7a0d059-105c-4ada-b76f-fb339e5de673.png)
 
-![image](https://user-images.githubusercontent.com/98390300/205445036-d1d63b2b-48fb-4983-b81e-a2181fa783c3.png)
+![image](https://user-images.githubusercontent.com/98390300/205482166-7a917137-6e7f-4e2b-aa54-0a7b655c918b.png)
 
 
 
 khaiii의 성능에 대해 얘기해 보면, 정확도에서는 파라미터 win의 경우, 3 또는 4에서 가장 좋은 성능을 보였고 그 이상에서는 성능이 떨어졌다. 파라미터 emb의 경우, 150까지는 성능도 같이 높아지다가 그 이상에서는 별 차이가 없다. 다음 사진은 정확도에 관한 사진이다.
  
-![image](https://user-images.githubusercontent.com/98390300/205445027-76a8f85d-6aa7-4d7e-a320-293c308a9523.png)
+![image](https://user-images.githubusercontent.com/98390300/205482184-de5c923b-d26d-45fb-9997-bf3c71515e84.png)
 
 (*win : CNN 모델의 주요 하이퍼 파라미터가 분류하려는 음절의 좌/우 문맥의 크기를 나타내는 값, win의 값은 {2, 3, 4, 5, 7, 10}의 값을 가짐)
 (*emb : 음절 임베딩의 차원을 나타내는 값, emb의 값은 {20, 30, 40, 50, 70, 100, 150, 200, 300, 500}의 값을 가짐) 
@@ -105,13 +105,13 @@ BERT란 Google에서 개발한 자연어 처리 사전 교육을 위한 변압�
  BERT는 사전 학습을 위해 Fine-tuning으로 접근한다. 여기서 Fine-tuning 이란 어떤 특정 작업에 대한 매개변수를 최소화하여 범용적인 사전 학습된 모델을 사용한다. 그리고 특정 작업을 수행할 경우 그에 맞게 Fine-tuning을 적용한다.
  다음 그림은 BERT를 이용한 자연어 처리 과정이며 Pre-training 과정과 이를 Fine-tuning 하여 여러 자연어 처리를 수행하는 과정이다.
  
-![image](https://user-images.githubusercontent.com/98390300/205445022-3f166bb4-2bdb-4cce-a00c-212aba807177.png)
+![image](https://user-images.githubusercontent.com/98390300/205482200-b96fc8fc-a297-418b-8c6a-6636541c1472.png)
 
  
  BERT의 Pre-training 과정에서 모든 레이어에서 Masked language Model, Next Sentence Prediction 두 가지 방법으로 BERT를 양방향 학습시켜 문맥을 파악 시킨다.
  Masked language Model은 input 토큰의 일부분을 랜덤하게 마스킹 하는 기법이고 다음 사진과 같이 진행된다. 
  
-![image](https://user-images.githubusercontent.com/98390300/205445011-2e796bd4-74ed-46ae-b108-5ef9591fbc26.png)
+![image](https://user-images.githubusercontent.com/98390300/205482237-3fcc7925-31ae-46c2-a0b4-2e51b785a892.png)
 
  Mask 토큰의 마지막 Hidden vector 값이 활성화 함수인 Softmax 함수로 들어가 특정 단어를 출력하는 방식이다. Mask 토큰은 15%의 비율로 랜덤하게 생성된다. masking 비율의 80%는 mask 토큰으로 변환되며 10%는 랜덤 한 단어, 나머지 10%는 기존 단어를 사용하여 문맥 정보를 활용할 수 있는 모델이 된다.
  다음은 Next Sentence Prediction이다. BERT는 두 문장의 관계를 파악하기 위해 원래 연결되어 있던 문장인지 사전 학습하는 것이다. 학습의 방법은 50%는 연결된 문장, 50%는 랜덤하게 뽑힌 문장을 집어넣는다. SEP이라는 특수 토큰을 활용해 문장을 분리하고 BERT는 임의의 문장이 첫 번째 문장에서 분리된다는 가정 하에 두 번째 문장이 임의의 문장인지에 대한 여부를 예측한다.
@@ -122,7 +122,7 @@ BERT란 Google에서 개발한 자연어 처리 사전 교육을 위한 변압�
  BERT as a service는 BERT와 연동되는 구조이다. BERT 모델을 Serving 하기 위해 사용한다. 학습된 BERT에서 문장을 정해진 길이의 Vector 값으로 수치화한다. Vector의 각 요소는 문장의 의미를 인코딩하면 BERT as a service는 짧은 코드를 통해 서비스로 제공할 수 있다. 이것의 장점으로는 빠른 속도, 짧은 코드로 인한 쉬운 접근, 다양한 환경 제공이다. 
  BERT as a service에서 BERT를 효율적으로 서빙하기 위해서 다음 소개할 풀링 전략을 사용한다. 보통 마지막 레이어는 이미 학습된 레이어이기 때문에 MLM, NSP에 의해 편향되어 있다. 그렇기에 편향되지 않은 레이어에 풀링을 적용한다. 
  
-![image](https://user-images.githubusercontent.com/98390300/205445004-a8a4b618-2179-45ab-bef1-f981613bcf4c.png)
+![image](https://user-images.githubusercontent.com/98390300/205482259-38b8c2e2-b9eb-4e7c-ab65-e592ad8f0613.png)
 
 위에 사진은 PCA를 활용하여 2차원으로 나타낸 BERT as a service로 나타낸 BERT 레이어들이다. 편향된 레이어와 그렇지 않은 레이어를 확인하기 위해 UCI-news Aggregator Dataset과 pretrained uncased_L-12_H-768_A-12를 이용해 시각화한 모델이다. 무작위 기사 제목을 뽑아 서로 다른 레이더에서 인코딩하고 2차원으로 나타냈고 데이터엔 각각의 4가지 데이터를 다른 색깔로 표현해 보았다.
 비슷한 층의 레이어는 비슷한 표현을 뽑아냈다고 생각하면 된다. 1번화 6번 레이어의 차이가 극심해 보이는데 이는 서로 다른 의미를 표현하고 있다고 판단된다.
@@ -147,19 +147,19 @@ Harris Corner 검출을 위해서는 아래의 과정이 필요하다.
 
 Harris Corner 검출은 소벨 미분으로 경계값을 검출하면서 경계값의 경사도 변화량을 측정하여 변화량이 수직, 수평, 대각선 방향으로 크게 변화하는 것을 코너로 판단한다.
 
-![image](https://user-images.githubusercontent.com/98390300/205444969-0f6bb543-1d01-447c-8213-3fa638b330dd.png)
+![image](https://user-images.githubusercontent.com/98390300/205482307-a7ee1bb0-022a-46eb-b159-ba0dea9cee4d.png)
 
  
 Harris Corner 검출기로 코너를 검출한 영상의 예시는 다음 사진과 같다.
 
-![image](https://user-images.githubusercontent.com/98390300/205444937-52f62d08-8f34-41ef-a060-7a5539089f1b.png)
+![image](https://user-images.githubusercontent.com/98390300/205482345-322944f1-a446-4a5a-8b58-39694f67c994.png)
 
 ### 3.1.5 keyBERT
 
 keyBERT는 앞서 말한 BERT를 적용한 오픈 소스 파이썬 모듈이다. keyBERT는 원본 문서를 가장 잘 나타내는 중요한 용어 또는 구문을 찾아내는 키워드를 추출하는 작업을 한다.
 keyBERT의 원리는 BERT를 이용해 문서 레벨 (document-level)에서의 주제 (representation)를 파악하도록 하고, N-gram을 위해 단어(자연어)를 기계가 이해할 수 있는 숫자의 나열인 벡터로 바꾸는 임베딩 작업을 한다. 여기서 N-gram 이란 Bag of Words, TF-IDF(Term Frequency - Inverse Document Frequency) 와 같이 사용되는 횟수 기반의 벡터 표현 방식을 사용하는 언어 모델이다. 이후 N-gram 모델을 사용해 문서의 각 문장을 단어로 나누어 준다. 코사인 유사도를 계산하여 어떤 N-gram 단어 또는 구가 문서와 가장 유사한지 찾아낸다. 그리고 가장 유사한 단어들은 문서를 가장 잘 설명할 수 있는 키워드로 분류된다.
 
-![image](https://user-images.githubusercontent.com/98390300/205444927-2a04df25-5d75-4c6c-9543-dd1754a7e02e.png)
+![image](https://user-images.githubusercontent.com/98390300/205482362-2a29c782-be81-464b-86e2-6ca4c2d55e79.png)
 
  
 또한, keyBERT는 중복된 의미의 키워드가 너무 많이 추출되는 경우에 대비해 결과 키워드에 다양성을 도입하는 MSS, MMR 두 가지 방법을 포함한다. MSS는 candidate-document 간 거리는 최소로 하면서 candidate-candidate 간 거리는 최대로 함으로써 의미적으로 풍부한 키워드 set을 얻는다. 문서와 가장 유사한 words/phrases 2개를 사용해 이 두 개의 top_n 단어에서 모든 top_n combination을 취해 코사인 유사도를 구한다. 여기서 유사도가 가장 낮은 조합을 추출하는 방법론이다. MMR은 텍스트 요약 작업에서 중복성을 최소화하고 결과의 다양성을 극대화하기 위해 노력한다. MRR은 문서와 가장 유사한 키워드를 선택하는 것으로 시작한다. 그런 다음 문서와 비슷하면서도 이미 선택한 키워드와 비슷하지 않은 새 후보를 반복s적으로 선택한다. 
@@ -201,7 +201,7 @@ Elasticsearch는 현재 웹 문서 검색, 소셜 데이터 분석, 쇼핑몰 �
 ### 3.1.8 GPT-Neo
  GPT-Neo는 비영리 오픈소스 연구 단체인 Eleuther AI에서 개발되었으며, GPT-3의 구조를 활용하여 학습한 거대 언어 모델로서, 학습 및 테스트에 필요한 코드들이 오픈소스로 공개되어 있을 뿐 아니라 학습에 사용된 대규모 데이터 셋인 Pile과 pre-trained model도 함께 공개되어 있다. GPT-Neo는 자동적인 언어 모델로서 훈련된다. 핵심적인 기능은 텍스트 문자열을 찍고 다음 토큰의 문자열을 예측하는 것이다. Eleuther가 그린 GPT-Neo의 다이어그램은 다음 사진처럼 나타낼 수 있다.
  
-![image](https://user-images.githubusercontent.com/98390300/205444908-8d01f419-48e5-44a1-a143-c086face34bc.png)
+![image](https://user-images.githubusercontent.com/98390300/205482457-b17d88a1-455c-430b-82e5-bc2046371cba.png)
 
  
 정확한 문장을 만들 수 있는 언어 모델인 GPT-3은 OpenAI가 개발했지만 오픈소스 오픈 액세스가 아니고 마이크로소프트와 독점 라이선스 계약을 체결하지 않았기 때문에 자유롭게 사용할 수 없다. 이 때문에 GPT-3의 오픈소스 버전인 GPT-Neo가 개발되었다. 따라서 이 둘은 매우 유사한 아키텍처를 가진 언어 모델이다. 즉, 이 둘의 구조는 비슷하다고 보면 될 것 같다. 
@@ -213,7 +213,7 @@ GPT-3는 미세 조정을 하지 않고 Few-Shot Learning을 통해 많이 증�
 
 GPT-3의 학습 방법은 다음 사진과 같다.
 
-![image](https://user-images.githubusercontent.com/98390300/205444899-271d9656-6d69-4091-a0be-d725bd0cba40.png)
+![image](https://user-images.githubusercontent.com/98390300/205482466-754abec9-a371-4605-8d7b-c0504fd0e8f0.png)
 
 ## 3.2 API
 
