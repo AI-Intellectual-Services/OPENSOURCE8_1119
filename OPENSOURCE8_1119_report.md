@@ -208,9 +208,6 @@ Elasticsearch는 현재 웹 문서 검색, 소셜 데이터 분석, 쇼핑몰 �
 GPT-Neo는 대규모 병렬 학습을 위한 라이브러리인 mesh-tensorflow 기반으로 만들어졌으며, 1.3B개, 2.7B개의 파라미터를 가지는 모델의 pre-trained model이 공개되어 있다. (*메쉬 텐서 플로우란 광범위한 분산 텐서 계산 클래스를 지정할 수 있는 분산 딥러닝용 언어이다) 
 GPT-3는 미세 조정을 하지 않고 Few-Shot Learning을 통해 많이 증가한 데이터량을 해결하려고 했다. (Few-Shot Learning이란 적용하고 싶은 task에 대한 데이터 10~100개 정도를 사용하여 모델에게 알려준 뒤, 원하는 결과를 얻어내는 것을 말한다) 또한, 학습을 진행하면서 동시에 Few-show Learning으로 사칙 연산, 오타 검색, 번역 등의 다양한 패턴 인지 능력을 학습시켰다. 다음 그림의 각 sequence는 전체 학습을 시킬 동안 내부적으로 반복 과정을 통해 학습한다.
 
-![image](https://user-images.githubusercontent.com/98390300/205444902-83480278-1d4b-405a-a280-ac9871a27c45.png)
-
-
 GPT-3의 학습 방법은 다음 사진과 같다.
 
 ![image](https://user-images.githubusercontent.com/98390300/205482466-754abec9-a371-4605-8d7b-c0504fd0e8f0.png)
