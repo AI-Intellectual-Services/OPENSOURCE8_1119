@@ -264,7 +264,7 @@ Spring Boot, JS, Thymeleaf, BootStrap5 사용
 ## 6.1.컴퓨터
 ### 6.1.2 초기화면
 
-![image](https://user-images.githubusercontent.com/98390300/205444855-e072d812-a26b-4498-87c7-b7ded2e231d9.png)
+![image](https://user-images.githubusercontent.com/98390300/205482674-a13662b0-a47b-4d5c-885d-5e176322d820.png)
 
 ① 서비스 이름
 ② 챗봇 채팅창
@@ -272,18 +272,19 @@ Spring Boot, JS, Thymeleaf, BootStrap5 사용
 ④ 챗봇에게 채팅 보내기
 ### 6.1.3	진행화면
 
-![image](https://user-images.githubusercontent.com/98390300/205444848-97e4469c-6ec7-44bd-9dec-28c2b6ced83f.png)
+![image](https://user-images.githubusercontent.com/98390300/205482678-4f5b97b4-10b7-40f8-b57a-c219d749586e.png)
 
 
 ## 6.2	모바일
 ### 6.2.1초기화면
 
-![image](https://user-images.githubusercontent.com/98390300/205444845-968ffa37-0df1-4147-a488-2d7639273b16.png)
+![image](https://user-images.githubusercontent.com/98390300/205482691-08699fb0-705b-4a34-be93-ce9d71c91601.png)
 
 
 ### 6.2.2진행화면
 
-![image](https://user-images.githubusercontent.com/98390300/205444839-c2b93e93-6ba1-49ae-8115-465e496c56f0.png)
+![image](https://user-images.githubusercontent.com/98390300/205482697-b3b483d2-5d4f-4f5e-a0c3-fdcad045a075.png)
+
 
 
 # 7. 참고문헌
