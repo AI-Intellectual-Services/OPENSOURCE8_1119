@@ -253,7 +253,8 @@ _Elastic-search	Elastic License	*상업적 이용시 계약 체결 혹은 Solar�
 # 5. DFD
 ----------------
  
-![image](https://user-images.githubusercontent.com/98390300/205444858-29859e41-1dbd-448c-8c3c-4c7ddddec4c5.png)
+![9a3281310c14325d (1) drawio](https://user-images.githubusercontent.com/98390300/205480653-38c85c17-ab20-421e-a85d-a34bae2c257c.png)
+
 
 사용자가 제품이 포함된 동영상을 챗봇에게 보내면 챗봇은 openCV에 영상을 전송해서 물체를 개별 프레임으로 만들어 Google Cloud API에 전송한다. 이 때 Google Cloud API에서 특정 제품으로 인식이 되면 제품에 관련된 키워드를 보여주고, 없으면 사용자에게 추가 검색 버튼을 누를 수 있게 설계하였다. 이후 추가 검색 버튼을 누르면 openCV에서 추출한 이미지가 챗봇을 통해 OCR로 간다. OCR에서는 사진 속 물체 정보(글자, 단어 등)를 추출하고, keyBERT에 전송한다. keyBERT는 챗봇에게 생성된 키워드를 전달 한다. 챗봇은 받은 키워드를 바탕으로 2개의 API, 1개의 연관검색어 크롤러를 통해 겹치는 키워드가 많은 경우 우선적으로 나열하여 사용자에게 전달한다. 이후 사용자는 원하는 키워드 항목을 선택하면 키워드에 관련된 제품 정보를 사용자에게 반환한다.
  만약 사용자가 제시된 키워드 이외의 결과를 원하는 경우, 챗봇을 통해 입력을 받고 문장의 형식일 경우 gpt-neo에게 전송하여 답을 받아온다. 사용자의 의도를 파악하지 못한 경우 입력했던 문장을 khaiii 로 받아온 뒤 keyBERT로 전송하여 키워드를 뽑아 ElasticSearch를 통하여 사용자가 원하는 답을 반환한다.
